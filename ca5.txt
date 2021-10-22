@@ -1,0 +1,32 @@
+int motor1_go = 9;
+int motor1 = 10;
+int motor2_go = 13;
+int motor2 = 11;
+int motorsSpeed = 110;
+
+void setup() {
+pinMode(motor1_go, OUTPUT);
+pinMode(motor1, OUTPUT);
+pinMode(motor2_go, OUTPUT);
+pinMode(motor2, OUTPUT);
+}
+
+void loop() {
+digitalWrite(motor1_go, HIGH);
+digitalWrite(motor2_go, HIGH);
+analogWrite(motor1, motorsSpeed);
+analogWrite(motor2, motorsSpeed);
+delay(1800);
+way();
+}
+
+void way() {
+analogWrite(motor1, 0);
+analogWrite(motor2, 0);
+delay(500);
+analogWrite(motor1, motorsSpeed);
+analogWrite(motor2, motorsSpeed);
+digitalWrite(motor1_go, HIGH);
+digitalWrite(motor2_go, LOW);
+delay(400);
+}
